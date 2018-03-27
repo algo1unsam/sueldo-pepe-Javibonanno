@@ -1,0 +1,47 @@
+import SueldoPepe.* 
+test "El neto para un gerente es de 1000" {
+
+	assert.equals(1000,gerente.neto())
+}
+
+test "El neto para cadetes es de 1500" {
+
+	assert.equals(1500,cadetes.neto())
+}
+
+test "El bono por porcentaje de gerente del 10% es de 100" {
+	var categoria= gerente
+	assert.equals(100,bonoPorcentaje.monto(categoria))
+}
+
+test "El bono por porcentaje de cadetes del 10% es de 150" {
+	var categoria= cadetes
+	assert.equals(150,bonoPorcentaje.monto(categoria))
+}
+
+test "El bono fijo de gerente es de 80" {
+	assert.equals(80,bonoFijo.monto())
+}
+
+test "El bono nulo es 0"{
+	assert.equals(0,bonoNada.monto())
+}
+
+test "El bono por 0 dias faltados es de 100"{
+	var dias=0
+	assert.equals(100,bonoDiasFaltados.monto(dias))
+}
+
+test "El bono por un dia faltado es de 50"{
+	var dias=1
+	assert.equals(50,bonoDiasFaltados.monto(dias))
+}	
+
+test "El bono por mas de un dia faltado es de 0"{
+	var dias=2
+	assert.equals(0,bonoDiasFaltados.monto(dias))
+}	
+	
+test "El sueldo de Pepe por gerente es 1200"{
+	assert.equals(1200,pepe.sueldo
+}	
