@@ -20,11 +20,13 @@ test "El bono por porcentaje de cadetes del 10% es de 150" {
 }
 
 test "El bono fijo de gerente es de 80" {
-	assert.equals(80,bonoFijo.monto())
+	var categoria= cadetes
+	assert.equals(80,bonoFijo.monto(categoria))
 }
 
 test "El bono nulo es 0"{
-	assert.equals(0,bonoNada.monto())
+	var categoria= cadetes
+	assert.equals(0,bonoNada.monto(categoria))
 }
 
 test "El bono por 0 dias faltados es de 100"{
@@ -42,6 +44,12 @@ test "El bono por mas de un dia faltado es de 0"{
 	assert.equals(0,bonoDiasFaltados.monto(dias))
 }	
 	
-test "El sueldo de Pepe por gerente es 1200"{
-	assert.equals(1200,pepe.sueldo
+test "El sueldo de Pepe por gerente con asistencia perfecta mas un bono fijo es 1180"{
+	
+	assert.equals(1180,pepe.sueldo(bonoDiasFaltados, bonoFijo))
 }	
+test "El sueldo de Pepe por cadetes con asistencia perfecta mas un bono fijo es 1680"{
+	pepe.cambiarCategoria(cadetes)
+	assert.equals(1680,pepe.sueldo(bonoDiasFaltados, bonoFijo))
+}	
+
